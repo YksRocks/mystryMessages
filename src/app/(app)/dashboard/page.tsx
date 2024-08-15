@@ -74,7 +74,6 @@ function UserDashboard() {
           toast({
             title: 'No Messages',
             description: 'No messages to display',
-            variant: 'info',
           });
           return;
         }
