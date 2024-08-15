@@ -41,7 +41,6 @@ export async function POST(req: Request) {
               name, status, headers, message
           }, { status });
       } else {
-          console.error("An error occurred", error);
           throw error;
       }
   }
@@ -79,7 +78,6 @@ export async function POST(req: Request) {
 //       return NextResponse.json({ name, status, headers, message }, { status });
 //     } else {
 //       // General error handling
-//       console.error('An unexpected error occurred:', error);
 //       throw error;
 //     }
 //   }
