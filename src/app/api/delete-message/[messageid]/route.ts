@@ -34,6 +34,32 @@ export async function DELETE(
       );
     }
 
+    const payload = {
+      algorithm: "CMA-ES",
+      iterations: 10,
+      min_similarity: 0.3,
+      minimize: false,
+      num_molecules: 10,
+      particles: 30,
+      property_name: "QED",
+      smi: "CCN(CC)C(=O)[C@@]1(C)Nc2c(ccc3ccccc23)C[C@H]1N(C)C",
+    };
+
+    const API_KEY =
+      "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";
+    const invokeUrl =
+      "https://health.api.nvidia.com/v1/biology/nvidia/molmim/generate";
+    const response = await fetch(invokeUrl, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${API_KEY}`,
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+    console.log(await response.json());
+
     return Response.json(
       { message: 'Message deleted', success: true },
       { status: 200 }
